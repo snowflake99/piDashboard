@@ -17,6 +17,12 @@
     float: left;
     resize: both;
     overflow: auto;
+	
+    -webkit-transition: opacity 1s ease-in-out;
+       -moz-transition: opacity 1s ease-in-out;
+        -ms-transition: opacity 1s ease-in-out;
+         -o-transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out;	
 }
 
 .tile1 { background-color: #ffad33; }
@@ -24,3 +30,9 @@
 .tile3 { background-color: #33cc33; }
 .tile4 { background-color: #e60073; }
 .tile5 { background-color: #00b8e6; }
+
+.tile:hover {
+    zoom: 1;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}

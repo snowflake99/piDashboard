@@ -9,7 +9,7 @@
         <title>PI Status</title>
 
         <script>
-            function myFunction() {
+            function collapseNavBar() {
                 var x = document.getElementById("myTopnav");
                 if (x.className === "topnav") {
                     x.className += " responsive";
@@ -21,17 +21,16 @@
     </head>
     <body>
     <div class="topnav" id="myTopnav">
-      <a href="#">Pi Status</a>
-      <a href="#refresh">Refresh</a>
-      <a href="#about">About</a>
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+      <a href="#"><img src="images/raspberryPi.png" style="width:22px; height:21px" title="PI Status" alt="raspberryPi"></a>
+      <a href="" style="float: right;">Refresh</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="collapseNavBar()">&#9776;</a>
     </div>
     <div class='tileContainer'>
-        <div class='tile tile1'></div>
-        <div class='tile tile2'></div>
-        <div class='tile tile3'></div>
-        <div class='tile tile4'></div>
-        <div class='tile tile5'></div>
+        <div id="tileID1" class='tile tile1'></div>
+        <div id="tileID2" class='tile tile2'></div>
+        <div id="tileID3" class='tile tile3'></div>
+        <div id="tileID4" class='tile tile4'></div>
+        <div id="tileID5" class='tile tile5'></div>
     </div>
     </body>
 </html>

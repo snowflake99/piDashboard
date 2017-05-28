@@ -22,7 +22,7 @@ body {
     -webkit-animation:colorchange 200ms;
     -webkit-animation-fill-mode: forwards;
     animation:colorchange 200ms;
-    animation-fill-mode: forwards;	
+    animation-fill-mode: forwards;  
 }
 
  @-webkit-keyframes colorchange {
@@ -55,5 +55,6 @@ body {
         float: none;
         display: block;
         text-align: left;
+        float: none !important;
     }
 }
