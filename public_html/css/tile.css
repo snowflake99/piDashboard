@@ -12,17 +12,31 @@
     height: 225px;
     width: 225px;
     margin: 3px 3px 3px 3px;
-    border-radius: 5px;
+    border-radius: 10px;
     border-color: #cccccc;
-    float: left;
+    
     resize: both;
     overflow: auto;
-	
+    
+    position: relative;
+    
     -webkit-transition: opacity 1s ease-in-out;
        -moz-transition: opacity 1s ease-in-out;
         -ms-transition: opacity 1s ease-in-out;
          -o-transition: opacity 1s ease-in-out;
-            transition: opacity 1s ease-in-out;	
+            transition: opacity 1s ease-in-out; 
+}
+
+.info {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 25px;
+    
+    position: absolute;
+    top : 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform    : translate(-50%, -50%);       
 }
 
 .tile1 { background-color: #ffad33; }
