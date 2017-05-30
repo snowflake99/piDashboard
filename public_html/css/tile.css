@@ -56,7 +56,7 @@
 .tileicon {
     background-position: left center;
     background-repeat: no-repeat;
-    padding-left: 34px; /* Or size of icon + spacing */ 
+    padding-left: 36px; /* Or size of icon + spacing */ 
 }
 
 .tile1 { background-color: #ffad33; }
@@ -66,3 +66,4 @@
 .tile5 { background-color: #00b8e6; }
 
 .disk { background-image: url(../images/diskicon.png); }
+.ram { background-image: url(../images/ramicon.png); }
