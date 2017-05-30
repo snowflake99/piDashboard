@@ -6,7 +6,7 @@
         <link rel="shortcut icon" href="images/favicon.png">
         <link rel="stylesheet" type="text/css" href="css/navigationBar.css">
         <link rel="stylesheet" type="text/css" href="css/tile.css">
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <title>PI Status</title>
 
         <script>
@@ -21,6 +21,7 @@
 
             $(function () {
                 function updateTiles () {
+					// Disk Usage tile
                     $.get( "./proxy/diskUsage.php").done(function (output) {
                         document.getElementById('tileID1').childNodes[0].innerHTML  = "<pre>" + "Disk Usage\n" + output + "</pre>";
                     });
@@ -38,7 +39,7 @@
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="collapseNavBar()">&#9776;</a>
     </div>
     <div class='tileContainer'>
-        <div id="tileID1" class='tile tile1'><div class='info'></div></div>
+        <div id="tileID1" class='tile tile1'><div class='tileicon disk info'></div></div>
         <div id="tileID2" class='tile tile2'><div class='info'></div></div>
         <div id="tileID3" class='tile tile3'><div class='info'></div></div>
         <div id="tileID4" class='tile tile4'><div class='info'></div></div>
