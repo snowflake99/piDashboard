@@ -25,15 +25,20 @@
                     $.get( "./proxy/diskUsage.php").done(function (output) {
                         document.getElementById('tileID1').childNodes[0].innerHTML  = "<pre>" + "Disk Usage\n" + output + "</pre>";
                     });
-					
+
 					// Ram free
 					$.get( "./proxy/ramUsage.php").done(function (output) {
                         document.getElementById('tileID2').childNodes[0].innerHTML  = "<pre>" + "Free Ram\n" + output + "</pre>";
                     });
+
+					// Average Load
+					$.get( "./proxy/averageLoad.php").done(function (output) {
+                        document.getElementById('tileID3').childNodes[0].innerHTML  = "<pre>" + "Average Load\n" + output + "</pre>";
+                    });
                 }
 
                 updateTiles();
-                setInterval( updateTiles, 5000 );
+                setInterval( updateTiles, 3000 );
             });
         </script>       
     </head>
@@ -46,9 +51,11 @@
     <div class='tileContainer'>
         <div id="tileID1" class='tile tile1'><div class='tileicon disk info'></div></div>
         <div id="tileID2" class='tile tile2'><div class='tileicon ram info'></div></div>
-        <div id="tileID3" class='tile tile3'><div class='info'></div></div>
+        <div id="tileID3" class='tile tile3'><div class='tileicon load info'></div></div>
+<!--
         <div id="tileID4" class='tile tile4'><div class='info'></div></div>
         <div id="tileID5" class='tile tile5'><div class='info'></div></div>
+-->
     </div>
     </body>
 </html>
