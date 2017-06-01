@@ -19,13 +19,39 @@ body {
 }
 
 .topnav a:hover {
-    -webkit-animation:colorchange 200ms;
+    -webkit-animation: colorchange 200ms;
+       -moz-animation: colorchange 200ms;  
+         -o-animation: colorchange 200ms;
+            animation: colorchange 200ms;   
+    
     -webkit-animation-fill-mode: forwards;
-    animation:colorchange 200ms;
-    animation-fill-mode: forwards;  
+       -moz-animation-fill-mode: forwards;  
+         -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 
- @-webkit-keyframes colorchange {
+@-webkit-keyframes colorchange  {
+  25% { color: #e6e6e6; }
+  50% { color: #cccccc; }
+  75% { color: #b3b3b3; }
+  100% { color: #999999; }
+}
+
+@-moz-keyframes colorchange  {
+  25% { color: #e6e6e6; }
+  50% { color: #cccccc; }
+  75% { color: #b3b3b3; }
+  100% { color: #999999; }
+}
+
+@-o-keyframes colorchange  {
+  25% { color: #e6e6e6; }
+  50% { color: #cccccc; }
+  75% { color: #b3b3b3; }
+  100% { color: #999999; }
+}
+
+@keyframes colorchange  {
   25% { color: #e6e6e6; }
   50% { color: #cccccc; }
   75% { color: #b3b3b3; }
