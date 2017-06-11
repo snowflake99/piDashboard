@@ -1,5 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php 
+			//session_start(); 
+			session_destroy();
+			session_unset();			
+			//session_start(); 
+		?>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="css/tile.css">
         <script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <title>PI Status</title>
-
+		 
         <script>
             function collapseNavBar() {
                 var x = document.getElementById("myTopnav");
@@ -41,6 +47,10 @@
                         document.getElementById('tileID4').childNodes[0].innerHTML  = "<pre>" + "CPU Usage\n" + output + "</pre>";
                     });
 
+					// Network Usage
+					$.get( "./proxy/networkUsage.php", {networkInterface: "wlan0", intervalSec: 3}).done(function (output) {
+                        document.getElementById('tileID5').childNodes[0].innerHTML  = "<pre>" + "Network Usage\n" + output + "</pre>";
+                    });
                 }
 
                 updateTiles();
@@ -59,9 +69,7 @@
         <div id="tileID2" class='tile tile2'><div class='tileicon ram info'></div></div>
         <div id="tileID3" class='tile tile3'><div class='tileicon load info'></div></div>
         <div id="tileID4" class='tile tile4'><div class='tileicon cpu info'></div></div>
-<!--
-        <div id="tileID5" class='tile tile5'><div class='info'></div></div>
--->
+        <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'></div></div>
     </div>
     </body>
 </html>
