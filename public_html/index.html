@@ -55,7 +55,6 @@
 					// Uptime
 					$.get( "./proxy/uptime.php").done(function (output) {
                         document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime\n" + output + "</pre>";
-						console.log(output);
                     });					
                 }
 
