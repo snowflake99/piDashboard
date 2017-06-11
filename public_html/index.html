@@ -51,6 +51,12 @@
 					$.get( "./proxy/networkUsage.php", {networkInterface: "wlan0", intervalSec: 3}).done(function (output) {
                         document.getElementById('tileID5').childNodes[0].innerHTML  = "<pre>" + "Wifi\n" + output + "</pre>";
                     });
+					
+					// Uptime
+					$.get( "./proxy/uptime.php").done(function (output) {
+                        document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime\n" + output + "</pre>";
+						console.log(output);
+                    });					
                 }
 
                 updateTiles();
@@ -70,6 +76,7 @@
         <div id="tileID3" class='tile tile3'><div class='tileicon load info'></div></div>
         <div id="tileID4" class='tile tile4'><div class='tileicon cpu info'></div></div>
         <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'></div></div>
+        <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'></div></div>
     </div>
     </body>
 </html>
