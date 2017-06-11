@@ -55,7 +55,12 @@
 					// Uptime
 					$.get( "./proxy/uptime.php").done(function (output) {
                         document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime\n" + output + "</pre>";
-                    });					
+                    });	
+					
+					// Users
+					$.get( "./proxy/users.php").done(function (output) {
+                        document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users\n" + output + "</pre>";
+                    });							
                 }
 
                 updateTiles();
@@ -76,6 +81,7 @@
         <div id="tileID4" class='tile tile4'><div class='tileicon cpu info'></div></div>
         <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'></div></div>
         <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'></div></div>
+		<div id="tileID7" class='tile tile7'><div class='tileicon users info'></div></div>
     </div>
     </body>
 </html>

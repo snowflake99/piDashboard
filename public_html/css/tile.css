@@ -67,6 +67,7 @@
 .tile4 { background-color: #ff0080; }
 .tile5 { background-color: #00b8e6; }
 .tile6 { background-color: #9933ff; }
+.tile7 { background-color: #00ffaa; }
 
 .disk { background-image: url(../images/diskicon.png); }
 .ram { background-image: url(../images/ramicon.png); }
@@ -74,3 +75,4 @@
 .cpu { background-image: url(../images/cpuicon.png); }
 .wifi { background-image: url(../images/wifiicon.png); }
 .uptime { background-image: url(../images/timeicon.png); }
+.users { background-image: url(../images/usersicon.png); }
