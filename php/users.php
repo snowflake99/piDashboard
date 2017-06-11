@@ -6,5 +6,5 @@
     if (preg_match_all('/[0-9]*\susers/', $shellOutput, $matches))
         echo explode(' ', $matches[0][0])[0];
     else
-        echo "-";
+        echo "0";
 ?>
