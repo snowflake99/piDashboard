@@ -29,37 +29,37 @@
                 function updateTiles () {
                     // Disk Usage tile
                     $.get( "./proxy/diskUsage.php").done(function (output) {
-                        document.getElementById('tileID1').childNodes[0].innerHTML  = "<pre>" + "Disk\n" + output + "</pre>";
+                        document.getElementById('tileID1').childNodes[0].innerHTML  = "<pre>" + "Disk<br>" + output + "</pre>";
                     });
 
                     // Ram free
                     $.get( "./proxy/ramUsage.php").done(function (output) {
-                        document.getElementById('tileID2').childNodes[0].innerHTML  = "<pre>" + "Free Ram\n" + output + "</pre>";
+                        document.getElementById('tileID2').childNodes[0].innerHTML  = "<pre>" + "Free Ram<br>" + output + "</pre>";
                     });
 
                     // Average Load
                     $.get( "./proxy/averageLoad.php").done(function (output) {
-                        document.getElementById('tileID3').childNodes[0].innerHTML  = "<pre>" + "Average Load\n" + output + "</pre>";
+                        document.getElementById('tileID3').childNodes[0].innerHTML  = "<pre>" + "Average Load<br>" + output + "</pre>";
                     });
 
                     // CPU Usage
                     $.get( "./proxy/cpuUsage.php").done(function (output) {
-                        document.getElementById('tileID4').childNodes[0].innerHTML  = "<pre>" + "CPU\n" + output + "</pre>";
+                        document.getElementById('tileID4').childNodes[0].innerHTML  = "<pre>" + "CPU<br>" + output + "</pre>";
                     });
 
 					// Network Usage
 					$.get( "./proxy/networkUsage.php", {networkInterface: "wlan0", intervalSec: 3}).done(function (output) {
-                        document.getElementById('tileID5').childNodes[0].innerHTML  = "<pre>" + "Wifi\n" + output + "</pre>";
+                        document.getElementById('tileID5').childNodes[0].innerHTML  = "<pre>" + "Wifi<br>" + output + "</pre>";
                     });
 					
 					// Uptime
 					$.get( "./proxy/uptime.php").done(function (output) {
-                        document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime\n" + output + "</pre>";
+                        document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime<br>" + output + "</pre>";
                     });	
 					
 					// Users
 					$.get( "./proxy/users.php").done(function (output) {
-                        document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users\n" + output + "</pre>";
+                        document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users<br>" + output + "</pre>";
                     });							
                 }
 
@@ -75,13 +75,13 @@
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="collapseNavBar()">&#9776;</a>
     </div>
     <div class='tileContainer'>
-        <div id="tileID1" class='tile tile1'><div class='tileicon disk info'></div></div>
-        <div id="tileID2" class='tile tile2'><div class='tileicon ram info'></div></div>
-        <div id="tileID3" class='tile tile3'><div class='tileicon load info'></div></div>
-        <div id="tileID4" class='tile tile4'><div class='tileicon cpu info'></div></div>
-        <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'></div></div>
-        <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'></div></div>
-		<div id="tileID7" class='tile tile7'><div class='tileicon users info'></div></div>
+        <div id="tileID1" class='tile tile1'><div class='tileicon disk info'><pre>Disk<br>-</pre></div></div>
+        <div id="tileID2" class='tile tile2'><div class='tileicon ram info'><pre>Free Ram<br>-</pre></div></div>
+        <div id="tileID3" class='tile tile3'><div class='tileicon load info'><pre>Average Load<br>-</pre></div></div>
+        <div id="tileID4" class='tile tile4'><div class='tileicon cpu info'><pre>CPU<br>-</pre></div></div>
+        <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'><pre>Wifi<br>-</pre></div></div>
+        <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'><pre>Uptime<br>-</pre></div></div>
+		<div id="tileID7" class='tile tile7'><div class='tileicon users info'><pre>Users<br>-</pre></div></div>
     </div>
     </body>
 </html>
