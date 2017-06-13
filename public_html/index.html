@@ -1,11 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php 
-			//session_start(); 
-			session_destroy();
-			session_unset();			
-			//session_start(); 
-		?>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +8,17 @@
         <link rel="stylesheet" type="text/css" href="css/tile.css">
         <script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <title>PI Status</title>
-		 
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
         <script>
+            $.ajaxSetup ({
+                // Disable caching of AJAX responses */
+                cache: false
+            });
+
             function collapseNavBar() {
                 var x = document.getElementById("myTopnav");
                 if (x.className === "topnav") {
@@ -47,26 +50,26 @@
                         document.getElementById('tileID4').childNodes[0].innerHTML  = "<pre>" + "CPU<br>" + output + "</pre>";
                     });
 
-					// Network Usage
-					$.get( "./proxy/networkUsage.php", {networkInterface: "wlan0", intervalSec: 3}).done(function (output) {
+                    // Network Usage
+                    $.get( "./proxy/networkUsage.php", {networkInterface: "wlan0", intervalSec: 3}).done(function (output) {
                         document.getElementById('tileID5').childNodes[0].innerHTML  = "<pre>" + "Wifi<br>" + output + "</pre>";
                     });
-					
-					// Uptime
-					$.get( "./proxy/uptime.php").done(function (output) {
+
+                    // Uptime
+                    $.get( "./proxy/uptime.php").done(function (output) {
                         document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime<br>" + output + "</pre>";
-                    });	
-					
-					// Users
-					$.get( "./proxy/users.php").done(function (output) {
+                    });
+
+                    // Users
+                    $.get( "./proxy/users.php").done(function (output) {
                         document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users<br>" + output + "</pre>";
-                    });							
+                    });
                 }
 
                 updateTiles();
                 setInterval( updateTiles, 3000 );
             });
-        </script>       
+        </script>
     </head>
     <body>
     <div class="topnav" id="myTopnav">
@@ -81,7 +84,7 @@
         <div id="tileID4" class='tile tile4'><div class='tileicon cpu info'><pre>CPU<br>-</pre></div></div>
         <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'><pre>Wifi<br>-</pre></div></div>
         <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'><pre>Uptime<br>-</pre></div></div>
-		<div id="tileID7" class='tile tile7'><div class='tileicon users info'><pre>Users<br>-</pre></div></div>
+        <div id="tileID7" class='tile tile7'><div class='tileicon users info'><pre>Users<br>-</pre></div></div>
     </div>
     </body>
 </html>
