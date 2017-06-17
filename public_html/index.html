@@ -64,8 +64,8 @@
                     $.get( "./proxy/users.php").done(function (output) {
                         document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users<br>" + output + "</pre>";
                     });
-					
-					// Ethernet Usage
+                    
+                    // Ethernet Usage
                     $.get( "./proxy/networkUsage.php", {networkInterface: "eth0", intervalSec: 3}).done(function (output) {
                         document.getElementById('tileID8').childNodes[0].innerHTML  = "<pre>" + "Ethernet<br>" + output + "</pre>";
                     });
@@ -90,7 +90,7 @@
         <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'><pre>Wifi<br>-</pre></div></div>
         <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'><pre>Uptime<br>-</pre></div></div>
         <div id="tileID7" class='tile tile7'><div class='tileicon users info'><pre>Users<br>-</pre></div></div>
-		<div id="tileID8" class='tile tile8'><div class='tileicon ethernet info'><pre>Ethernet<br>-</pre></div></div>		
+        <div id="tileID8" class='tile tile8'><div class='tileicon ethernet info'><pre>Ethernet<br>-</pre></div></div>       
     </div>
     </body>
 </html>
