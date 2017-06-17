@@ -7,10 +7,10 @@
     $tx = @file_get_contents("/sys/class/net/$interface/statistics/tx_bytes"); 
 	
 	
-	if (isset($_SESSION['prev_rx']) &&
-	    isset($_SESSION['prev_tx']))	{
-		$rkbps = (($rx - $_SESSION['prev_rx'])/1024) / $intervalSec;
-		$tkbps = (($tx - $_SESSION['prev_tx'])/1024) / $intervalSec;
+	if (isset($_SESSION[$interface]['prev_rx']) &&
+	    isset($_SESSION[$interface]['prev_tx']))	{
+		$rkbps = (($rx - $_SESSION[$interface]['prev_rx'])/1024) / $intervalSec;
+		$tkbps = (($tx - $_SESSION[$interface]['prev_tx'])/1024) / $intervalSec;
 		
 		if ($rkbps > 1024) {
 			$rxRate = ceil($rkbps / 1024);
@@ -32,8 +32,8 @@
 		$txRate = "0"; $txunit = "kbps";
 	}
 	
-	$_SESSION['prev_rx'] = $rx;
-	$_SESSION['prev_tx'] = $tx;
+	$_SESSION[$interface]['prev_rx'] = $rx;
+	$_SESSION[$interface]['prev_tx'] = $tx;
 	
 	echo "Rx ".$rxRate.$rxunit."\n"."Tx ".$txRate.$txunit;
 ?>
