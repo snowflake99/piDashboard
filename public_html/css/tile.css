@@ -22,7 +22,7 @@
     
     overflow: hidden;
 	
-	opacity: 0.5;
+	opacity: 0.6;
     
     -webkit-transition: opacity 1s ease-in-out;
        -moz-transition: opacity 1s ease-in-out;
@@ -61,14 +61,14 @@
     padding-left: 36px; /* Or size of icon + spacing */ 
 }
 
-.tile1 { background-color: #ffa31a; }
-.tile2 { background-color: #ff3333; }
-.tile3 { background-color: #33cc33; }
-.tile4 { background-color: #ff0080; }
-.tile5 { background-color: #00b8e6; }
-.tile6 { background-color: #9933ff; }
-.tile7 { background-color: #00ffaa; }
-.tile8 { background-color: #bf8040; }
+.tile1 { background-color: #4285F4; }
+.tile2 { background-color: #FBBC05; }
+.tile3 { background-color: #34A853; }
+.tile4 { background-color: #EA4335; }
+.tile5 { background-color: #66757F; }
+.tile6 { background-color: #7B0099; }
+.tile7 { background-color: #7CBB00; }
+.tile8 { background-color: #3B5998; }
 
 .disk { background-image: url(../images/diskicon.png); }
 .ram { background-image: url(../images/ramicon.png); }
