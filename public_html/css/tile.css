@@ -61,14 +61,14 @@
     padding-left: 36px; /* Or size of icon + spacing */ 
 }
 
-.tile1 { background-color: #EE6352; }
-.tile2 { background-color: #59CD90; }
-.tile3 { background-color: #3FA7D6; }
-.tile4 { background-color: #FAC05E; }
-.tile5 { background-color: #F79D84; }
-.tile6 { background-color: #999521; }
-.tile7 { background-color: #433207; }
-.tile8 { background-color: #F70000; }
+.tile1 { background-color: #ffad33; }
+.tile2 { background-color: #ff3333; }
+.tile3 { background-color: #33cc33; }
+.tile4 { background-color: #e60073; }
+.tile5 { background-color: #00b8e6; }
+.tile6 { background-color: #61E294; }
+.tile7 { background-color: #7BCDBA; }
+.tile8 { background-color: #9799CA; }
 
 .disk { background-image: url(../images/diskicon.png); }
 .ram { background-image: url(../images/ramicon.png); }
