@@ -18,6 +18,14 @@
                 // Disable caching of AJAX responses */
                 cache: false
             });
+            
+            /**
+             * Returns a random integer between min (inclusive) and max (inclusive)
+             * Using Math.round() will give you a non-uniform distribution!
+             */
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
 
             function collapseNavBar() {
                 var x = document.getElementById("myTopnav");
@@ -29,6 +37,12 @@
             }
 
             $(function () {
+                function rotateTiles () {
+                    var id = getRandomInt(1, 8);
+                    $('#tileID'+id).toggleClass('animateTileRotation');
+                    console.log ("Rotate");
+                }
+                
                 function updateTiles () {
                     // Disk Usage tile
                     $.get( "./proxy/diskUsage.php").done(function (output) {
@@ -73,6 +87,7 @@
 
                 updateTiles();
                 setInterval( updateTiles, 3000 );
+                setInterval( rotateTiles, 10000 );
             });
         </script>
     </head>

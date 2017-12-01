@@ -21,20 +21,20 @@
     position: relative;
     
     overflow: hidden;
-	
-	opacity: 0.6;
     
-    -webkit-transition: opacity 1s ease-in-out;
-       -moz-transition: opacity 1s ease-in-out;
-        -ms-transition: opacity 1s ease-in-out;
-         -o-transition: opacity 1s ease-in-out;
-            transition: opacity 1s ease-in-out; 
+    opacity: 0.6;
+                
+    -webkit-transition: all 1.0s ease-in-out;
+       -moz-transition: all 1.0s ease-in-out;
+        -ms-transition: all 1.0s ease-in-out;
+         -o-transition: all 1.0s ease-in-out;
+            transition: all 1.0s ease-in-out;
 }
 
 .tile:hover {
     zoom: 1;
     filter: alpha(opacity=100);
-	opacity: 1.0;
+    opacity: 1.0;
 }
 
 .info {
@@ -59,6 +59,14 @@
     background-position: left center;
     background-repeat: no-repeat;
     padding-left: 36px; /* Or size of icon + spacing */ 
+}
+
+.animateTileRotation { 
+    -webkit-transform:rotateY(360deg);
+       -moz-transform:rotateY(360deg);
+        -ms-transform:rotateY(360deg);
+         -o-transform:rotateY(360deg);
+            transform:rotateY(360deg); 
 }
 
 .tile1 { background-color: #ffad33; }
