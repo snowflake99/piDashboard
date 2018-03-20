@@ -14,6 +14,15 @@
         <meta http-equiv="Expires" content="0" />
 
         <script>
+            const AXIS_X = 1;
+            const AXIS_Y = 2;
+            const NB_OF_TILES = 8;
+            const TILE_FLIP_INTERVAL = 60000;
+            const TILE_UPDATE_INTERVAL = 5000;
+            
+            var interval = 0;
+            var axis = AXIS_X;
+                            
             $.ajaxSetup ({
                 // Disable caching of AJAX responses */
                 cache: false
@@ -36,57 +45,69 @@
                 }
             }
 
-            $(function () {
-                function rotateTiles () {
-                    var id = getRandomInt(1, 8);
-                    $('#tileID'+id).toggleClass('animateTileRotation');
-                }
+            function rotateTiles () {
+                var id = getRandomInt(1, NB_OF_TILES);
                 
-                function updateTiles () {
-                    // Disk Usage tile
-                    $.get( "./proxy/diskUsage.php").done(function (output) {
-                        document.getElementById('tileID1').childNodes[0].innerHTML  = "<pre>" + "Disk<br>" + output + "</pre>";
-                    });
-
-                    // Ram free
-                    $.get( "./proxy/ramUsage.php").done(function (output) {
-                        document.getElementById('tileID2').childNodes[0].innerHTML  = "<pre>" + "Free Ram<br>" + output + "</pre>";
-                    });
-
-                    // Average Load
-                    $.get( "./proxy/averageLoad.php").done(function (output) {
-                        document.getElementById('tileID3').childNodes[0].innerHTML  = "<pre>" + "Average Load<br>" + output + "</pre>";
-                    });
-
-                    // CPU Usage
-                    $.get( "./proxy/cpuUsage.php").done(function (output) {
-                        document.getElementById('tileID4').childNodes[0].innerHTML  = "<pre>" + "CPU<br>" + output + "</pre>";
-                    });
-
-                    // Wifi Usage
-                    $.get( "./proxy/networkUsage.php", {networkInterface: "wlan0", intervalSec: 3}).done(function (output) {
-                        document.getElementById('tileID5').childNodes[0].innerHTML  = "<pre>" + "Wifi<br>" + output + "</pre>";
-                    });
-
-                    // Uptime
-                    $.get( "./proxy/uptime.php").done(function (output) {
-                        document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime<br>" + output + "</pre>";
-                    });
-
-                    // Users
-                    $.get( "./proxy/users.php").done(function (output) {
-                        document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users<br>" + output + "</pre>";
-                    });
-                    
-                    // Ethernet Usage
-                    $.get( "./proxy/networkUsage.php", {networkInterface: "eth0", intervalSec: 3}).done(function (output) {
-                        document.getElementById('tileID8').childNodes[0].innerHTML  = "<pre>" + "Ethernet<br>" + output + "</pre>";
-                    });
+                if (axis == AXIS_X)  {
+                    $('#tileID'+id).toggleClass('animateTileRotationX');
+                    axis = AXIS_Y;
+                } else {
+                    $('#tileID'+id).toggleClass('animateTileRotationY');
+                    axis = AXIS_X;
                 }
+            }
+            
+            function updateTiles () {
+                // Disk Usage tile
+                $.get( "./proxy/diskUsage.php").done(function (output) {
+                    document.getElementById('tileID1').childNodes[0].innerHTML  = "<pre>" + "Disk<br>" + output + "</pre>";
+                });
 
-                updateTiles();
-                setInterval( updateTiles, 3000 );
-                setInterval( rotateTiles, 10000 );
+                // Ram free
+                $.get( "./proxy/ramUsage.php").done(function (output) {
+                    document.getElementById('tileID2').childNodes[0].innerHTML  = "<pre>" + "Free Ram<br>" + output + "</pre>";
+                });
+
+                // Average Load
+                $.get( "./proxy/averageLoad.php").done(function (output) {
+                    document.getElementById('tileID3').childNodes[0].innerHTML  = "<pre>" + "Average Load<br>" + output + "</pre>";
+                });
+
+                // CPU Usage
+                $.get( "./proxy/cpuUsage.php").done(function (output) {
+                    document.getElementById('tileID4').childNodes[0].innerHTML  = "<pre>" + "CPU<br>" + output + "</pre>";
+                });
+
+                // Wifi Usage
+                $.get( "./proxy/networkUsage.php", {networkInterface: "wlan0", intervalSec: 3}).done(function (output) {
+                    document.getElementById('tileID5').childNodes[0].innerHTML  = "<pre>" + "Wifi<br>" + output + "</pre>";
+                });
+
+                // Uptime
+                $.get( "./proxy/uptime.php").done(function (output) {
+                    document.getElementById('tileID6').childNodes[0].innerHTML  = "<pre>" + "Uptime<br>" + output + "</pre>";
+                });
+
+                // Users
+                $.get( "./proxy/users.php").done(function (output) {
+                    document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users<br>" + output + "</pre>";
+                });
+                
+                // Ethernet Usage
+                $.get( "./proxy/networkUsage.php", {networkInterface: "eth0", intervalSec: 3}).done(function (output) {
+                    document.getElementById('tileID8').childNodes[0].innerHTML  = "<pre>" + "Ethernet<br>" + output + "</pre>";
+                });
+            }
+
+            $(document).ready(function () {
+                setInterval( updateTiles, TILE_UPDATE_INTERVAL );
+                
+                $(window).focus(function () {
+                    clearInterval(TILE_FLIP_INTERVAL);
+                    interval = setInterval(rotateTiles, TILE_FLIP_INTERVAL);
+                }).blur(function () {
+                    clearInterval(interval);
+                });
             });
         </script>
     </head>

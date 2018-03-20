@@ -11,11 +11,9 @@
     float:left;
     height: 218px;
     width: 218px;
-    margin: 3px 3px 3px 3px;
-    border-radius: 10px;
+    border-radius: 4px;
     border-color: #cccccc;
     
-    resize: both;
     overflow: auto;
     
     position: relative;
@@ -61,12 +59,20 @@
     padding-left: 36px; /* Or size of icon + spacing */ 
 }
 
-.animateTileRotation { 
+.animateTileRotationX { 
+    -webkit-transform:rotateX(360deg);
+       -moz-transform:rotateX(360deg);
+        -ms-transform:rotateX(360deg);
+         -o-transform:rotateX(360deg);
+            transform:rotateX(360deg);
+}
+
+.animateTileRotationY { 
     -webkit-transform:rotateY(360deg);
        -moz-transform:rotateY(360deg);
         -ms-transform:rotateY(360deg);
          -o-transform:rotateY(360deg);
-            transform:rotateY(360deg); 
+            transform:rotateY(360deg);
 }
 
 .tile1 { background-color: #ffad33; }
