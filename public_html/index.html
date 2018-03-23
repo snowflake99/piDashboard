@@ -19,15 +19,15 @@
             const NB_OF_TILES = 8;
             const TILE_FLIP_INTERVAL = 60000;
             const TILE_UPDATE_INTERVAL = 5000;
-            
+
             var interval = 0;
             var axis = AXIS_X;
-                            
+
             $.ajaxSetup ({
                 // Disable caching of AJAX responses */
                 cache: false
             });
-            
+
             /**
              * Returns a random integer between min (inclusive) and max (inclusive)
              * Using Math.round() will give you a non-uniform distribution!
@@ -47,7 +47,7 @@
 
             function rotateTiles () {
                 var id = getRandomInt(1, NB_OF_TILES);
-                
+
                 if (axis == AXIS_X)  {
                     $('#tileID'+id).toggleClass('animateTileRotationX');
                     axis = AXIS_Y;
@@ -56,7 +56,19 @@
                     axis = AXIS_X;
                 }
             }
-            
+
+            function setTileDimension(w, h) {
+                // h : Height not used, Future enhancement
+                var idx = 0;
+                var NumTilesPerRow = (w <= 800) ? 2 : 5;
+                var tileSize = ( (w-(NumTilesPerRow*2))/NumTilesPerRow );
+                
+                for (idx = 1; idx <= NB_OF_TILES; idx++ ) {
+                  document.getElementById('tileID'+idx).style.width = document.getElementById('tileID'+idx).style.height =
+                      tileSize + "px";
+                }
+            }
+
             function updateTiles () {
                 // Disk Usage tile
                 $.get( "./proxy/diskUsage.php").done(function (output) {
@@ -65,12 +77,12 @@
 
                 // Ram free
                 $.get( "./proxy/ramUsage.php").done(function (output) {
-                    document.getElementById('tileID2').childNodes[0].innerHTML  = "<pre>" + "Free Ram<br>" + output + "</pre>";
+                    document.getElementById('tileID2').childNodes[0].innerHTML  = "<pre>" + "Free RAM<br>" + output + "</pre>";
                 });
 
                 // Average Load
                 $.get( "./proxy/averageLoad.php").done(function (output) {
-                    document.getElementById('tileID3').childNodes[0].innerHTML  = "<pre>" + "Average Load<br>" + output + "</pre>";
+                    document.getElementById('tileID3').childNodes[0].innerHTML  = "<pre>" + "Load<br>" + output + "</pre>";
                 });
 
                 // CPU Usage
@@ -92,7 +104,7 @@
                 $.get( "./proxy/users.php").done(function (output) {
                     document.getElementById('tileID7').childNodes[0].innerHTML  = "<pre>" + "Users<br>" + output + "</pre>";
                 });
-                
+
                 // Ethernet Usage
                 $.get( "./proxy/networkUsage.php", {networkInterface: "eth0", intervalSec: 3}).done(function (output) {
                     document.getElementById('tileID8').childNodes[0].innerHTML  = "<pre>" + "Ethernet<br>" + output + "</pre>";
@@ -100,8 +112,11 @@
             }
 
             $(document).ready(function () {
+                setTileDimension($(".tileContainer").width(),
+                                 $(".tileContainer").height());
+
                 setInterval( updateTiles, TILE_UPDATE_INTERVAL );
-                
+
                 $(window).focus(function () {
                     clearInterval(TILE_FLIP_INTERVAL);
                     interval = setInterval(rotateTiles, TILE_FLIP_INTERVAL);
@@ -109,6 +124,11 @@
                     clearInterval(interval);
                 });
             });
+
+            window.onresize = function(event) {
+                setTileDimension($(".tileContainer").width(),
+                                 $(".tileContainer").height());
+            };
         </script>
     </head>
     <body>
@@ -119,13 +139,13 @@
     </div>
     <div class='tileContainer'>
         <div id="tileID1" class='tile tile1'><div class='tileicon disk info'><pre>Disk<br>-</pre></div></div>
-        <div id="tileID2" class='tile tile2'><div class='tileicon ram info'><pre>Free Ram<br>-</pre></div></div>
-        <div id="tileID3" class='tile tile3'><div class='tileicon load info'><pre>Average Load<br>-</pre></div></div>
+        <div id="tileID2" class='tile tile2'><div class='tileicon ram info'><pre>Free RAM<br>-</pre></div></div>
+        <div id="tileID3" class='tile tile3'><div class='tileicon load info'><pre>Load<br>-</pre></div></div>
         <div id="tileID4" class='tile tile4'><div class='tileicon cpu info'><pre>CPU<br>-</pre></div></div>
         <div id="tileID5" class='tile tile5'><div class='tileicon wifi info'><pre>Wifi<br>-</pre></div></div>
         <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'><pre>Uptime<br>-</pre></div></div>
         <div id="tileID7" class='tile tile7'><div class='tileicon users info'><pre>Users<br>-</pre></div></div>
-        <div id="tileID8" class='tile tile8'><div class='tileicon ethernet info'><pre>Ethernet<br>-</pre></div></div>       
+        <div id="tileID8" class='tile tile8'><div class='tileicon ethernet info'><pre>Ethernet<br>-</pre></div></div>
     </div>
     </body>
 </html>
