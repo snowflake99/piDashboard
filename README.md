@@ -1,4 +1,4 @@
-# pidashboard.com 
-Web based interface to view Raspberry PI status graphically.
+# piDashboard
+Web based interface to display Raspberry PI status graphically.
 
 ![Alt text](/snapshot/Home.png?raw=true "Home Page")
