@@ -7,8 +7,10 @@
 }
 
 .tile {
-    border: 1px solid;
-    float:left;
+    border: 0.1vw solid;
+    float: left;
+    width: calc(20vw - 0.2vw);
+    height: calc(20vw - 0.2vw);
     min-width: 150px;
     min-height: 150px;
     border-radius: 4px;
@@ -92,3 +94,10 @@
 .uptime { background-image: url(../images/timeicon.png); }
 .users { background-image: url(../images/usersicon.png); }
 .ethernet { background-image: url(../images/ethernet.png); }
+
+@media only screen and (max-width: 800px) {
+    .tile {
+      width: calc(50vw - (50vw - 50%) - 0.2vw);
+      height: 50vw;
+    }
+}
