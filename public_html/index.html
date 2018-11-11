@@ -16,7 +16,7 @@
         <script>
             const AXIS_X = 1;
             const AXIS_Y = 2;
-            const NB_OF_TILES = 8;
+            const NB_OF_TILES = 10;
             const TILE_FLIP_INTERVAL = 60000;
             const TILE_UPDATE_INTERVAL = 5000;
 
@@ -97,6 +97,16 @@
                 $.get( "./proxy/networkUsage.php", {networkInterface: "eth0", intervalSec: 3}).done(function (output) {
                     document.getElementById('tileID8').childNodes[0].innerHTML  = "<pre>" + "Ethernet<br>" + output + "</pre>";
                 });
+
+                // Date
+                $.get( "./proxy/date.php").done(function (output) {
+                    document.getElementById('tileID9').childNodes[0].innerHTML  = "<pre>" + "Date<br>" + output + "</pre>";
+                });
+
+                // Time
+                $.get( "./proxy/time.php").done(function (output) {
+                    document.getElementById('tileID10').childNodes[0].innerHTML  = "<pre>" + "Time<br>" + output + "</pre>";
+                });
             }
 
             $(document).ready(function () {
@@ -126,6 +136,8 @@
         <div id="tileID6" class='tile tile6'><div class='tileicon uptime info'><pre>Uptime<br>-</pre></div></div>
         <div id="tileID7" class='tile tile7'><div class='tileicon users info'><pre>Users<br>-</pre></div></div>
         <div id="tileID8" class='tile tile8'><div class='tileicon ethernet info'><pre>Ethernet<br>-</pre></div></div>
+        <div id="tileID9" class='tile tile9'><div class='tileicon date info'><pre>Date<br>-</pre></div></div>
+        <div id="tileID10" class='tile tile10'><div class='tileicon time info'><pre>Time<br>-</pre></div></div>
     </div>
     </body>
 </html>
