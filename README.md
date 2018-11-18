@@ -16,5 +16,5 @@ piDashboards provide at-a-glance views of relevant KPIs (key performance indicat
 
 <div align="left">
     <img src="/snapshot/Home.png" alt="Desktop home page"</img><br>
-    <img src="/snapshot/Home-Mobile.png" alt="Mobile home page" width="360px" height="640px"</img> 
+    <img src="/snapshot/Home-Mobile.png" alt="Mobile home page" width="270px" height="384px"</img> 
 </div>
