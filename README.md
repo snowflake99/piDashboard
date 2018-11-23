@@ -4,9 +4,9 @@
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/snowflake99/piDashboard.svg)](http://isitmaintained.com/project/snowflake99/piDashboard "Percentage of issues still open")
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
-[![apache version](https://img.shields.io/badge/apache-v2.4.10-red.svg)](https://shields.io/)
-[![php version](https://img.shields.io/badge/Php-v7.0-orange.svg)](https://shields.io/) 
-[![mysql version](https://img.shields.io/badge/mysql-v15.1-yellow.svg)](https://shields.io/) 
+[![apache version](https://img.shields.io/badge/apache-v2.4.x-red.svg)](https://httpd.apache.org/download.cgi)
+[![php version](https://img.shields.io/badge/Php-v7.0-orange.svg)](http://php.net/downloads.php) 
+[![mysql version](https://img.shields.io/badge/mysql-v15.1-yellow.svg)](https://dev.mysql.com/downloads/) 
 
 # piDashboard
 piDashboards provide at-a-glance views of relevant KPIs (key performance indicators) of the host system. It is updated periodically and can be accessed via web based interface. 
